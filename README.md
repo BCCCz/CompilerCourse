@@ -3,9 +3,14 @@
 
 - 课程笔记
 
-  一位计科院学长的笔记：https://github.com/marsCatXdu/MyCompilePrincipleNote
+  - 一位计科院学长的笔记：https://github.com/marsCatXdu/MyCompilePrincipleNote
 
-- 大作业
+- 大作业代码
+
+  - 原始代码来源：https://github.com/izcat/Interpreter4FPL
+
+  - 语法树的生成不符合网信院验收要求，略微进行改动
+  - 删除了*Tkinter*模块编写UI页面
 
 - 实验报告
 
