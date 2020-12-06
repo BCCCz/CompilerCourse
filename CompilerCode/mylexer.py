@@ -76,27 +76,19 @@ def showTokens(tokens):
 	for token in tokens:
 		token.show()
 		
-# 没有使用 NONTOKEN
-# 利用 i<len(string)
-# 
-
-
-# 已改进
-# 防止越界
+#防止越界
 def getChar(str, pos):
 	if pos<len(str):
 		return str[pos]
 	else:
 		return ''
 
-
-# 词法分析，过滤掉无关字符，返回识别出的所有 token
+#词法分析 过滤掉无关字符返回识别出的所有token
 def Lexer(string, show=False):	
 	string = string.upper()
 	tokens = []		# 识别出的token
 	lineNum = 1 	# 行号
 	i = 0
-	# print("Line %d :" % lineNum)
 
 	while True:
 		char = getChar(string, i)
@@ -107,7 +99,6 @@ def Lexer(string, show=False):
 		if char=='\n':
 			lineNum = lineNum + 1
 			i = i + 1
-			# print("\nLine %d :" % lineNum)
 			continue
 
 		if char==' ' or char=='\t' or char=='\r':
@@ -127,10 +118,6 @@ def Lexer(string, show=False):
 					i = i - 1
 					break
 
-			# print(tmpStr)
-			# 字典中没找到，则为 ERRTOKEN
-			# dict.get(key, default=None)
-			# 返回指定键的值，如果值不在字典中返回default值
 			token = TokenTypeDict.get(tmpStr, Token(TokenType.ERRTOKEN, tmpStr))
 
 		elif char.isdigit():
@@ -211,14 +198,3 @@ def Lexer(string, show=False):
 	if show:
 		showTokens(tokens)
 	return tokens
-
-
-def test():
-	# tokens = Lexer("--hello fad\n  //fadfjl\n  hahafds kLL ROT is (  1, 0*2) \n ROT is (sin(t), cos(tt));")
-	str = "152+3**(5)+(1-34)*2/2-1*2**5*245-1+2-3*4/5-(6)*7-(((232)))*((2**5)-5)**1.4"
-	tokens = Lexer(str)
-
-	showTokens(tokens)
-
-# print('.'.isdigit())
-# test()

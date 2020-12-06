@@ -4,7 +4,7 @@ from mypainter import Painter
 import os
 
 textBox = None
-str = 'ORigin is (-30, 0); SCALE is (  20, 25); for t from 0 to 2*pi step 0.01 draw (sin(t), cos(t));  SCALE is (  30, 20); for t from -1 to 1 step 0.01 draw (2, t); FOR t from 0 to 1 step 0.01 draw (2+t, t);for t from -1 to 1 step 0.01 draw (2, t); FOR t from 0 to 1 step 0.01 draw (2+t, -t);for t from 0 to 2*pi step 0.01 draw (1+3*sin(t), 3*cos(t)); '
-#Lexer(str, show=True)
-#Parser(str, show=True)
-#Painter(str)
+str = 'FOR T FROM 0 TO 2*PI STEP PI/50 DRAW (cos(T),sin(T));'
+Lexer(str, show=True)
+Parser(str, show=True)
+Painter(str)

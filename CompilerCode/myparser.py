@@ -5,10 +5,8 @@ from expnode import ExpNode
 import math
 import sys
 
-########################################
-# 语法分析器
-########################################
 
+#语法分析器
 tokenIter = None
 tokenNow = None
 showProcess = False
@@ -106,9 +104,7 @@ def Factor(level):
 	else:
 		return Component(level+1)		
 
-# 乘方运算
-# 右结合
-# 不支持 CONST_ID ** MINUS CONST_ID, 需要添括号
+# 乘方运算 右结合
 def Component(level):
 	left = Atom(level)
 	if tokenNow.tokenType==TokenType.POWER:
@@ -270,11 +266,3 @@ def Parser(string, show=False):
 	setDefaultValue(show)
 	FetchToken()
 	return Program()
-
-'''
-def test():
-	str = "ORigin is (-30, 0); SCALE is (  20, 25); for t from 0 to 2*pi step 0.01 draw (sin(t), cos(t));  SCALE is (  30, 20); for t from -1 to 1 step 0.01 draw (2, t); FOR t from 0 to 1 step 0.01 draw (2+t, t);for t from -1 to 1 step 0.01 draw (2, t); FOR t from 0 to 1 step 0.01 draw (2+t, -t);for t from 0 to 2*pi step 0.01 draw (1+3*sin(t), 3*cos(t)); "
-	Parser(str)
-
-test()
-'''
